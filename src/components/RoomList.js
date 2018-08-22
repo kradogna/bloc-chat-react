@@ -27,10 +27,9 @@ class RoomList extends Component {
 
   createRoom(e) {
     e.preventDefault();
-    if (!this.state.newRoomName) {return}
+    if (!this.state.newRoomName) {return};
     this.roomsRef.push({name: this.state.newRoomName});
     this.setState({newRoomName: ""});
-    }
   }
 
   render() {
@@ -44,7 +43,7 @@ class RoomList extends Component {
       </form>
     );
 
-    return(
+    return (
       <div>
         <div>{createRoomForm}</div>
         <ul>{roomList}</ul>
