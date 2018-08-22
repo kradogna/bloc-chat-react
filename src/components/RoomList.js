@@ -26,8 +26,11 @@ class RoomList extends Component {
   }
 
   createRoom(e) {
+    e.preventDefault();
+    if (!this.state.newRoomName) {return}
     this.roomsRef.push({name: this.state.newRoomName});
     this.setState({newRoomName: ""});
+    }
   }
 
   render() {
@@ -36,7 +39,7 @@ class RoomList extends Component {
     );
     const createRoomForm = (
       <form onSubmit={this.createRoom}>
-        <input type="text" placeholder="Enter room name" onChange={this.handleRoomChange} />
+        <input type="text" value={this.state.newRoomName} placeholder="Enter room name" onChange={this.handleRoomChange} />
         <input type="submit" value="Create Room" />
       </form>
     );
