@@ -9,7 +9,7 @@ class RoomList extends Component {
     };
 
     this.roomsRef = this.props.firebase.database().ref("rooms");
-    this.handleRoomChange = this.handleRoomChange.bind(this);
+    this.handleNewRoom = this.handleNewRoom.bind(this);
     this.createRoom = this.createRoom.bind(this);
   }
 
@@ -17,11 +17,11 @@ class RoomList extends Component {
     this.roomsRef.on('child_added', snapshot => {
       const room = snapshot.val();
       room.key = snapshot.key;
-      this.setState({ rooms: this.state.rooms.concat(room) });
+      this.setState({rooms: this.state.rooms.concat(room)});
     });
   }
 
-  handleRoomChange(e) {
+  handleNewRoom(e) {
     this.setState({newRoomName: e.target.value});
   }
 
@@ -33,20 +33,16 @@ class RoomList extends Component {
   }
 
   render() {
-    const roomList = this.state.rooms.map((room) =>
-      <li key={room.key}>{room.name}</li>
-    );
-    const createRoomForm = (
-      <form onSubmit={this.createRoom}>
-        <input type="text" value={this.state.newRoomName} placeholder="Enter room name" onChange={this.handleRoomChange} />
-        <input type="submit" value="Create Room" />
-      </form>
-    );
-
     return (
       <div>
-        <div>{createRoomForm}</div>
-        <ul>{roomList}</ul>
+        <form onSubmit={this.createRoom}>
+          <input type="text" value={this.state.newRoomName} placeholder="Enter room name" onChange={this.handleNewRoom} />
+          <input type="submit" value="Add Room" />
+        </form>
+
+        {this.state.rooms.map((room, index) =>
+          <div key={index} onClick={() => this.props.setActiveRoom(room)}>{room.name}</div>
+        )}
       </div>
     );
   }
