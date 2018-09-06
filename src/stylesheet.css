@@ -10,7 +10,6 @@ h1 {
   color: #000000;
   font-size: 3rem;
   font-weight: bold;
-  padding-bottom: 20px;
 }
 
 .flex-container {
@@ -31,7 +30,7 @@ h1 {
 }
 
 .newRoomForm {
-  padding: 0px 0px 10px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .roomData {
@@ -74,6 +73,15 @@ h1 {
   float: right;
 }
 
-.message {
+.button {
+  float: right;
+  margin-right: 20px;
+}
 
+.loginUser {
+  font-size: 1.25rem;
+}
+
+.loginBtn {
+  margin-left: 5px;
 }
