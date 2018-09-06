@@ -27,11 +27,17 @@ class MessageList extends Component {
   render() {
     return (
       <div>
-        <h1>{this.props.activeRoom.name}</h1>
-        {this.state.messages.filter(message =>
-          message.roomId == this.props.activeRoom.key).map((message, index) =>
-          <ul><li key={index}>{message.username} <br></br> {message.content} <br></br> {message.sentAt}</li></ul>
-        )}
+        <div className="roomName">{this.props.activeRoom.name}</div>
+        <ul id="messageList">
+          {this.state.messages.filter(message =>
+            message.roomId == this.props.activeRoom.key).map((message, index) =>
+            <li className="messageItems" key={index}>
+              <div className="username">{message.username}</div>
+              <div className="sentAt">{message.sentAt}</div>
+              <div className="messageLine2">{message.content}</div>
+            </li>
+          )}
+        </ul>
       </div>
     );
   }

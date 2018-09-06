@@ -1,0 +1,29 @@
+html, body {
+  font-size: 10px;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+#sidebar {
+  background-color: #b3d1ff;
+  height: 100%;
+  width: 20%;
+}
+
+#main {
+  background-color: #FF0000;
+  flex: auto;
+  float: right;
+  height: 100%;
+  width: 80%;
+}

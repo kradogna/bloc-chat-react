@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import './reset-css/reset.css';
+import './stylesheet.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
 import MessageList from './components/MessageList.js';
@@ -29,17 +30,16 @@ setActiveRoom(room) {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to Bloc Chat React</h1>
-        </header>
-
-        <div className="App-intro">
+      <div className="flex-container">
+        <div id="sidebar">
           <RoomList
             firebase={firebase}
             activeRoom={this.state.activeRoom}
             setActiveRoom={this.setActiveRoom}
           />
+        </div>
+
+        <div id="main">
           <MessageList
             firebase={firebase}
             activeRoom={this.state.activeRoom}

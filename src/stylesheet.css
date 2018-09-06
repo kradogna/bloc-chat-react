@@ -1,0 +1,79 @@
+html, body {
+  font-family: Arial;
+  font-size: 10px;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+h1 {
+  color: #000000;
+  font-size: 3rem;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+#sidebar {
+  background-color: #CDD0D6;
+  color: #000000;
+  height: 100vh;
+  padding: 10px;
+  width: 20%;
+}
+
+.newRoomForm {
+  padding: 0px 0px 10px 0px;
+}
+
+.roomData {
+  height: 25px;
+}
+
+.roomName {
+  font-size: 2rem;
+  font-weight: bold;
+  height: 30px;
+  padding: 10px;
+  text-align: middle;
+  text-transform: uppercase;
+}
+
+#main {
+  flex: auto;
+  float: right;
+  width: 80%;
+}
+
+#messageList>li:nth-child(odd) {
+  background-color: #DCDFE5;
+}
+
+#messageList>li:nth-child(even) {
+  background-color: #FFFFFF;
+}
+
+.messageItems {
+  border-bottom: solid 3px #BBBDC1;
+  padding: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.sentAt {
+  float: right;
+}
+
+.message {
+
+}
