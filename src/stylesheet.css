@@ -29,15 +29,25 @@ h1 {
   width: 20%;
 }
 
+#main {
+  float: right;
+  height: 100%;
+  width: 80%;
+}
+
+/* RoomList styling */
+
 .newRoomForm {
   padding: 10px 0px 10px 0px;
 }
 
 .roomData {
   height: 25px;
+  width: 100%;
 }
 
 .roomName {
+  border-bottom: solid 3px #BBBDC1;
   font-size: 2rem;
   font-weight: bold;
   height: 30px;
@@ -46,11 +56,12 @@ h1 {
   text-transform: uppercase;
 }
 
-#main {
-  flex: auto;
+.roomBtn {
   float: right;
-  width: 80%;
+  margin-right: 20px;
 }
+
+/* MessageList styling */
 
 #messageList>li:nth-child(odd) {
   background-color: #DCDFE5;
@@ -73,10 +84,25 @@ h1 {
   float: right;
 }
 
-.button {
-  float: right;
-  margin-right: 20px;
+/* Send message input form styling */
+
+.newMessageForm {
+  bottom: 0px;
+  display: flex;
+  width: 100%;
 }
+
+.newMessage {
+  flex-grow: 1;
+  height: 30px;
+  width: 100%
+}
+
+.messageBtn {
+  height: 36px;
+}
+
+/* User Styling */
 
 .loginUser {
   font-size: 1.25rem;

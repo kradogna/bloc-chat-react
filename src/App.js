@@ -22,11 +22,13 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: "",
-      currentUser: ""
+      currentUser: "",
+      newMessage: ""
     };
 
     this.setActiveRoom = this.setActiveRoom.bind(this);
     this.setUser = this.setUser.bind(this);
+    this.setNewMessage = this.setNewMessage.bind(this);
 }
 
 setActiveRoom(room) {
@@ -35,6 +37,10 @@ setActiveRoom(room) {
 
 setUser(user) {
   this.setState({currentUser: user});
+}
+
+setNewMessage(message) {
+  this.setState({newMessage: message});
 }
 
   render() {
@@ -59,6 +65,7 @@ setUser(user) {
           <MessageList
             firebase={firebase}
             activeRoom={this.state.activeRoom}
+            user={this.state.currentUser}
           />
         </div>
       </div>

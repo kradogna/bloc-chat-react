@@ -35,9 +35,9 @@ class RoomList extends Component {
   render() {
     return (
       <div>
-        <form className="newRoomForm" onSubmit={this.createRoom}>
-          <input type="text" value={this.state.newRoomName} placeholder="Enter room name" onChange={this.handleNewRoom} />
-          <input type="submit" className="button" value="Add Room" />
+        <form className="newRoomForm" onSubmit={(e) => this.createRoom(e)}>
+          <input type="text" value={this.state.newRoomName} placeholder="Enter room name" onChange={(e) => this.handleNewRoom(e)} />
+          <input type="submit" className="roomBtn" value="Add Room" />
         </form>
 
         <ul>
