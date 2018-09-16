@@ -11,6 +11,7 @@ class RoomList extends Component {
     this.roomsRef = this.props.firebase.database().ref("rooms");
     this.handleNewRoom = this.handleNewRoom.bind(this);
     this.createRoom = this.createRoom.bind(this);
+    this.deleteRoom = this.deleteRoom.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,13 @@ class RoomList extends Component {
     this.setState({newRoomName: ""});
   }
 
+  deleteRoom(rmRoom) {
+    this.props.firebase.database().ref("rooms").child(rmRoom.key).remove();
+    this.setState({rooms: this.state.rooms.filter(room => {
+      return room.key !== rmRoom.key
+    })});
+  }
+
   render() {
     return (
       <div>
@@ -42,8 +50,11 @@ class RoomList extends Component {
 
         <ul>
           {this.state.rooms.map((room, index) =>
-            <div className="roomData" key={index} onClick={() => this.props.setActiveRoom(room)}>
-              {room.name}</div>
+            <div key={index}>
+              <span className="roomData" onClick={() => this.props.setActiveRoom(room)}>
+                {room.name}</span>
+                <span className="icon ion-md-trash" onClick={(e) => this.deleteRoom(room)}></span>
+            </div>
           )}
         </ul>
       </div>

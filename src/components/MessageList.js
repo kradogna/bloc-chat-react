@@ -24,7 +24,6 @@ class MessageList extends Component {
   componentDidMount() {
     this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
-      console.log(new Date(message.sentAt));
       message.key = snapshot.key;
       this.setState({messages: this.state.messages.concat(message)});
     });
@@ -64,10 +63,7 @@ class MessageList extends Component {
             message.roomId == this.props.activeRoom.key).map((message, index) =>
             <li className="messageItems" key={index}>
               <div className="username">{message.username}</div>
-
-              <Moment element="span" format="MM/DD/YY hh:mm A" className="sentAt">
-                {message.sentAt}
-              </Moment>
+              <Moment element="span" format="MM/DD/YY hh:mm A" className="sentAt">{message.sentAt}</Moment>
               <div className="content">{message.content}</div>
             </li>
           )}
